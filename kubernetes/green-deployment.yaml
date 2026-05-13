@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fintech-app-green
+  labels:
+    app: fintech-app
+    version: green
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: fintech-app
+      version: green
+  template:
+    metadata:
+      labels:
+        app: fintech-app
+        version: green
+    spec:
+      containers:
+      - name: fintech-app
+        image: my-docker-registry/fintech-app:v1.1.0 # New version
+        ports:
+        - containerPort: 8080

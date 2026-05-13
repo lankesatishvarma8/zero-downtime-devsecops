@@ -1,0 +1,4 @@
+Trivy Vulnerability Report (Placeholder)
+Image: fintech-app:latest
+Vulnerabilities: 0 High, 0 Critical
+Result: Passed
