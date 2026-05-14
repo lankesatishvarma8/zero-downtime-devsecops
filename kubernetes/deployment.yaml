@@ -25,7 +25,7 @@ spec:
     spec:
       containers:
       - name: fintech-app
-        image: ${IMAGE_NAME} # Substituted during deployment
+        image: fintech-app:2 # Substituted during deployment
         ports:
         - containerPort: 8080
         readinessProbe:
