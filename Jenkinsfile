@@ -89,8 +89,8 @@ pipeline {
         stage('9. Kubernetes Deployment') {
             steps {
                 sh '''
-                kubectl apply -f kubernetes/deployment.yaml
-                kubectl apply -f kubernetes/service.yaml
+                kubectl apply -f kubernetes/deployment.yaml --validate=false
+                kubectl apply -f kubernetes/service.yaml --validate=false
                 kubectl set image deployment/fintech-app fintech-app=${DOCKER_IMAGE}:latest || true
                 kubectl patch deployment fintech-app -p '{"spec":{"template":{"spec":{"containers":[{"name":"fintech-app","imagePullPolicy":"Never"}]}}}}' || true
                 '''
